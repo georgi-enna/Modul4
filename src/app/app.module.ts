@@ -15,6 +15,7 @@ import { Team2Component } from './teams/team2/team2.component';
 import { Team3Component } from './teams/team3/team3.component';
 import { Team4Component } from './teams/team4/team4.component';
 import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'teams', component: TeamsComponent },
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   { path: 'team1', component: Team1Component },
   { path: 'team2', component: Team2Component },
   { path: 'team3', component: Team3Component },
-  { path: 'team3', component: Team4Component },
+  { path: 'team4', component: Team4Component },
  /* {
     path: 'heroes',
     component: HeroListComponent,
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
       title: 'Heroes List'
     }
   },*/
+  { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     Team2Component,
     Team3Component,
     Team4Component,
-    AboutComponent
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
