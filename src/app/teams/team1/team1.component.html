@@ -1,30 +1,32 @@
-<h3>Team 1</h3>
-<br>
-<h4>Week Two</h4>
+<div class="content">
+  <h3>Team 1</h3>
+  <br>
+  <h4>Week Two</h4>
 
-<p>
-  Modulul 1 primeste o fraza pos-tagged de la modulul 3.
-  M1 trimite la LUIS cuvintele din fraza in ordinea in care apar
-  LUIS  ofera o analiza logica a frazei, returnand intentia acesteia si tipul entitatilor inplicate. De exemplu: intents:”travel”; entities:„London”, type : Location.
-  <br>
-  Submodulul emotion detector primeste acelasi input pentru a detecta emotiile implicate de fraza utilizatorului.
-  M1 adauga aceste informatii la json-ul cu pos-tagging primit de la M3 si il trimite la M2, cu tag-ul „reply”, care va returna o lista de raspunsuri.
-  In paralel, M1 trimite la M2 o interogare doar cu emotia cu tag-ul „semantic field” pentru a obtine un camp semantic al acelui cuvant.
-  Raspunsurile de la M2 vor fi apoi date ca input submodului de NLG, care va genera texte in functie de acestea.
-  Pentru a selecta cel mai bun raspuns, textele vor fi din nou trecute prin modulele de recunoastere a intentiei si a emotiei, pentru a vedea daca se potrivesc cu inputul utilizatorului.
-  <br>
-  Modulul 1 implementeaza un submodul de monitorizare a conversatiei. El are ca scop memorarea sesiunii curente, monitorizarea starii emotionale a interlocutorului din emotiile extrase de submodulul de detectie a acestora si din frecventa cu care acesta raspunde, din lungimea raspunsului etc. Acesta calculeaza un scor pentru emotiile negative ale interlocutorului si, in caz de acest scor a atins un prag prestabilit, va sista mecanismul curent de selectie a raspunsului pentru a incerca sa-i imbunatateasca dispozitia utilizatorului. Acesta va cere de la M2 o fraza care sa arate ca empatizeaza cu utilizatorul(va trimite tag-ul „empathy” si emotia curenta identificata a utilizatorului), apoi se va oferi sa spuna o gluma sau sa vorbeasca despre ceva ce i-ar face placere utilizatorului.
-  Tot acest submodul monitorizeaza frecventa cu care un raspuns i-a fost oferit utilizatorului pentru a evita ca robotelul sa dea raspunsuri repetitive.
-  Submodulul mai este insarcinat sa ii ofere personalitate robotelului, alegand la un interval de timp aleator sa indrepte conversatia spre una dintre ariile sale de interes, proiectate de M2. Aceasta actiune nu va fi declansata daca momentan incearca sa-i imbunatateasca starea emotionala, pentru a nu da impresia de interlocutor insensibil. Aceasta optiune va putea fi activata si daca utilizatorul este plictisit sau are o atitudine neutra si dezinteresata.
-  Comunicarea cu modulul 2 se va face trimitandu-i acestuia un tag special cu scopul „interogarii”, pentru ca acesta sa poata trimite raspunsuri din diferite submodule ale sale. Exemple pentru cazurile enumerate mai sus ar fi :
-  „wh-question” pentru baza de cunostinte generale
-  „empathy” pentru un aiml care sa arate empatia cu utilizatorul
-  „joke” pentru un aiml care sa faca glume
-  „personal question” pentru un submodul care sa puna intrebarile ce au ca scop cunoasterea userului.
-</p>
-<p>UseCase Diagram</p>
-<img class="img-responsive" src="../../assets/usecase_modulul1.png">
-<ul class="pager">
-  <li><a routerLink="/team4"><span class="glyphicon glyphicon-chevron-left"></span>Team 4</a></li>
-  <li><a routerLink="/team2">Team 2<span class="glyphicon glyphicon-chevron-right"></span></a></li>
-</ul>
+  <p>
+    Modulul 1 primeste o fraza pos-tagged de la modulul 3.
+    M1 trimite la LUIS cuvintele din fraza in ordinea in care apar
+    LUIS  ofera o analiza logica a frazei, returnand intentia acesteia si tipul entitatilor inplicate. De exemplu: intents:”travel”; entities:„London”, type : Location.
+    <br>
+    Submodulul emotion detector primeste acelasi input pentru a detecta emotiile implicate de fraza utilizatorului.
+    M1 adauga aceste informatii la json-ul cu pos-tagging primit de la M3 si il trimite la M2, cu tag-ul „reply”, care va returna o lista de raspunsuri.
+    In paralel, M1 trimite la M2 o interogare doar cu emotia cu tag-ul „semantic field” pentru a obtine un camp semantic al acelui cuvant.
+    Raspunsurile de la M2 vor fi apoi date ca input submodului de NLG, care va genera texte in functie de acestea.
+    Pentru a selecta cel mai bun raspuns, textele vor fi din nou trecute prin modulele de recunoastere a intentiei si a emotiei, pentru a vedea daca se potrivesc cu inputul utilizatorului.
+    <br>
+    Modulul 1 implementeaza un submodul de monitorizare a conversatiei. El are ca scop memorarea sesiunii curente, monitorizarea starii emotionale a interlocutorului din emotiile extrase de submodulul de detectie a acestora si din frecventa cu care acesta raspunde, din lungimea raspunsului etc. Acesta calculeaza un scor pentru emotiile negative ale interlocutorului si, in caz de acest scor a atins un prag prestabilit, va sista mecanismul curent de selectie a raspunsului pentru a incerca sa-i imbunatateasca dispozitia utilizatorului. Acesta va cere de la M2 o fraza care sa arate ca empatizeaza cu utilizatorul(va trimite tag-ul „empathy” si emotia curenta identificata a utilizatorului), apoi se va oferi sa spuna o gluma sau sa vorbeasca despre ceva ce i-ar face placere utilizatorului.
+    Tot acest submodul monitorizeaza frecventa cu care un raspuns i-a fost oferit utilizatorului pentru a evita ca robotelul sa dea raspunsuri repetitive.
+    Submodulul mai este insarcinat sa ii ofere personalitate robotelului, alegand la un interval de timp aleator sa indrepte conversatia spre una dintre ariile sale de interes, proiectate de M2. Aceasta actiune nu va fi declansata daca momentan incearca sa-i imbunatateasca starea emotionala, pentru a nu da impresia de interlocutor insensibil. Aceasta optiune va putea fi activata si daca utilizatorul este plictisit sau are o atitudine neutra si dezinteresata.
+    Comunicarea cu modulul 2 se va face trimitandu-i acestuia un tag special cu scopul „interogarii”, pentru ca acesta sa poata trimite raspunsuri din diferite submodule ale sale. Exemple pentru cazurile enumerate mai sus ar fi :
+    „wh-question” pentru baza de cunostinte generale
+    „empathy” pentru un aiml care sa arate empatia cu utilizatorul
+    „joke” pentru un aiml care sa faca glume
+    „personal question” pentru un submodul care sa puna intrebarile ce au ca scop cunoasterea userului.
+  </p>
+  <p>UseCase Diagram</p>
+  <img class="img-responsive" src="../../assets/usecase_modulul1.png">
+  <ul class="pager">
+    <li><a routerLink="/team4"><span class="glyphicon glyphicon-chevron-left"></span>Team 4</a></li>
+    <li><a routerLink="/team2">Team 2<span class="glyphicon glyphicon-chevron-right"></span></a></li>
+  </ul>
+</div>

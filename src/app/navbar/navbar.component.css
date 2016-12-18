@@ -1,0 +1,11 @@
+.navbar-brand{
+    padding-left: 100px;
+    text-decoration: double;
+}
+.navbar-nav.navbar-right:last-child {
+     margin-bottom: inherit;
+}
+.navbar-default {
+    background-color: white;
+    border-color: #ff4800;
+}
